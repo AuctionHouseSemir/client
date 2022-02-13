@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package proto;
+
+option java_multiple_files = true;
+option java_package = "com.house.auction.client.proto";
+option java_outer_classname = "CommandServiceProto";
+
+service CommandService {
+  rpc execute(Request) returns (Response);
+}
+
+message Request {
+  string commandName = 1;
+  string authToken = 2;
+  repeated string params = 3;
+}
+
+message Response {
+  string status = 1;
+  string content = 2;
+}
